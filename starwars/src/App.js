@@ -31,12 +31,10 @@ const [names, setNames] = useState([]);
       <div>
         {
             names.map((data, index) => {
-            return <StarwarsCard key={index} name={data.name} />
+            return <StarwarsCard key={index} name={data.name} height={data.height} mass={data.mass} eye_color={data.eye_color} birth_year={data.birth_year}/>
             })
         }
       </div>
-      
-
     </div>
 
 
