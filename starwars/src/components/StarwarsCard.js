@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
+import React from 'react';
 
 import styled from "styled-components";
 
 import '../index.css'
 // style = {{ maxWidth: "200px" }}
 
-const H1 = styled.h1`
-color: blue;
+const CardStyle = styled.div`
+background-color: blue;
 `
 
 
-export default function StarwarsCard(props) {
-
+const StarwarsCard = ({name}) => {
     return (
-        <div>
-            <H1>{props.characterName}</H1>
-        </div>
-    );
+        <CardStyle>
+            <h1>{name}</h1>
+        </CardStyle>
+    )
 }
+
+export default StarwarsCard;

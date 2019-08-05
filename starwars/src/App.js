@@ -7,32 +7,46 @@ import axios from 'axios';
 
 import StarwarsCard from './components/StarwarsCard';
 
+
+
 const App = () => {
-const [names, setNames] = useState()
+const [names, setNames] = useState([]);
+
 
   useEffect(() => {
     axios
       .get('https://swapi.co/api/people/')
       .then(data => {
-        const PrimeName = data.data.results[2].name
-        console.log(PrimeName)
-        setNames(PrimeName);
+        setNames(data.data.results);
 
       })
       .catch(err => {
         console.log(err);
       })
   }, []);
+  // console.log(names);
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <StarwarsCard characterName={names} />
+      <div>
+        {
+            names.map((data, index) => {
+            return <StarwarsCard key={index} name={data.name} />
+            })
+        }
+      </div>
+      
 
     </div>
 
 
   );
 }
+
+
+// { StarWarArr.forEach((card) => new StarwarsCard(card)) }
+
+// console.log(StarWarArr);
 
 export default App;
 
